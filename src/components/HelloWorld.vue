@@ -26,6 +26,9 @@
 </template>
 
 <script>
+import http from '../common/http'
+import api from '../common/api'
+
 export default {
   name: 'HelloWorld',
   data () {
@@ -35,9 +38,25 @@ export default {
       isFast: false
     }
   },
+  mounted () {
+    this.fetchData()
+  },
   methods: {
     fastspeed () {
       this.isFast = !this.isFast
+    },
+    fetchData: async function () {
+      let params = {
+        id: 123,
+        name: 'yuan'
+      }
+      await http.get(api.right, params).then(res => {
+        console.log(111)
+//        console.log(res)
+      }, res => {
+        console.log(222)
+//        console.log(res)
+      })
     }
   }
 }
