@@ -42,8 +42,9 @@ export default {
       url,
       params,                                       // get请求时带的参数
       timeout: 5000,
+			// 如果是开发环境跨域访问后端接口，这个headers配置需要去掉，不然无法跨域，一直都是访问本地服务器
       headers: {
-        'X-Requested-With': 'XMLHttpRequest'		// 如果是开发环境跨域访问后端接口，这个headers配置需要去掉，不然无法跨域，一直都是访问本地服务器
+        'X-Requested-With': 'XMLHttpRequest'
       }
     })
   }
